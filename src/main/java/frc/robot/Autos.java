@@ -1,7 +1,7 @@
 package frc.robot;
 
 public enum Autos {
-    MID_AUTO("MidAuto"),
+    MID_AUTO("ExampleAuto"),
     LEFT_AUTO("LeftAuto");
     
     private final String autoName;

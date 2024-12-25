@@ -23,6 +23,7 @@ public class SubsystemManager {
 
     private static final CommandPS4Controller ps4Joystick = new CommandPS4Controller(0);
 
+    private static final PS4Controller psController_HID = ps4Joystick.getHID();
 
     private static boolean isLocked = false;
 
@@ -42,11 +43,16 @@ public class SubsystemManager {
 
     public static void operate(boolean onAuto) {
         if (!onAuto) {
-            state = ps4Joystick.circle().getAsBoolean() ? RobotState.TRAVEL : lastState;
-
+            state = psController_HID.getCircleButtonPressed() ? RobotState.TRAVEL : lastState;
+            // if (psController_HID.getCircleButtonPressed()){
+            //     state = RobotState.TRAVEL;
+            // }
+            // else{
+            //     state = lastState;
+            // }
 
         }   
-
+        
         switch (state) {
             case TRAVEL:
 
